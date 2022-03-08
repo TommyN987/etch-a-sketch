@@ -1,6 +1,7 @@
 html {
   box-sizing: border-box;
   font-size: 10px;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 *,
@@ -42,11 +43,73 @@ main {
   gap: 20px;
 }
 
+.switch-container {
+  width: 50%;
+  padding: 10px 0;
+  color: white;
+  background-color: rgb(72, 72, 72);
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+span {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.switch {
+  display: inline-flex;
+  margin: 0 10px;
+}
+
+.switch input[type=checkbox] {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+
+.switch input[type=checkbox]:checked + label {
+  background: green;
+}
+
+.switch input[type=checkbox]:checked + label::after {
+  left: calc(100% - 4px);
+  transform: translateX(-100%);
+}
+
+.switch label {
+  cursor: pointer;
+  width: 48px;
+  height: 24px;
+  background: grey;
+  display: block;
+  border-radius: 24px;
+  position: relative;
+}
+
+.switch label::after {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 16px;
+  height: 16px;
+  background: white;
+  border-radius: 16px;
+  transition: 0.3s;
+}
+
 button {
   width: 50%;
   padding: 10px 0;
   color: white;
   background-color: rgb(72, 72, 72);
+  font-family: 'Courier New', Courier, monospace;
   font-size: 1.5rem;
   font-weight: bold;
   border-radius: 10px;
@@ -59,6 +122,7 @@ button {
   width: 700px;
   align-self: center;
   display: grid;
+  background-color: black;
 }
 
 .grid-item {

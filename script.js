@@ -7,7 +7,9 @@ const btnClear = document.getElementById('btn-clear');
 const btnNew = document.getElementById('btn-new-grid');
 const btnBlack = document.getElementById('btn-black');
 const btnHex = document.getElementById('btn-hex');
+const btnShader = document.getElementById('btn-shader');
 const btnEraser = document.getElementById('btn-eraser');
+const toggler = document.getElementById('toggleAll');
 
 // ******************************************************* 
 // BUTTON EVENT LISTENERS
@@ -17,6 +19,7 @@ btnClear.addEventListener('click', clearGrid);
 btnNew.addEventListener('click', makeCustomGrid);
 btnHex.addEventListener('click', changeToHex);
 btnBlack.addEventListener('click', changeToBlack);
+btnShader.addEventListener('click', changeToShade);
 btnEraser.addEventListener('click', erase);
 
 // ******************************************************* 
@@ -50,6 +53,10 @@ function removeGrid () {
   });
 }
 
+function checkToggler () {
+  return toggler.checked == true ? 'click' : 'mouseenter';
+}
+
 // *******************************************************
 // GRID LAYOUT FUNCTIONS
 // *******************************************************
@@ -60,7 +67,8 @@ function makeGrid (cols) {
   for (i = 0; i < (cols*cols); i++) {
     const gridItem = document.createElement('div');
     gridItem.classList.add('grid-item');
-    gridItem.addEventListener('mouseenter', blackColor);
+    gridItem.style.opacity = 1;
+    gridItem.addEventListener(`${checkToggler()}`, addBlackColor);
     container.appendChild(gridItem);
   }
 }
@@ -77,25 +85,41 @@ function makeCustomGrid() {
 function changeToBlack () {
   const gridItems = document.querySelectorAll('.grid-item');
   gridItems.forEach(item => {
-    item.removeEventListener('click', whiteColor);
-    item.removeEventListener('mouseenter', hexColor);
-    item.addEventListener('mouseenter', blackColor)});
+    item.removeEventListener(`${checkToggler()}`, addShade);
+    item.removeEventListener(`${checkToggler()}`, whiteColor);
+    item.removeEventListener(`${checkToggler()}`, addHexColor);
+    item.addEventListener(`${checkToggler()}`, addBlackColor)});
 }
 
 function changeToHex () {
   const gridItems = document.querySelectorAll('.grid-item');
   gridItems.forEach((item) => {
-    item.removeEventListener('click', whiteColor);
-    item.removeEventListener('mouseenter', blackColor);
-    item.addEventListener('mouseenter', hexColor)});
+    item.removeEventListener(`${checkToggler()}`, addShade);
+    item.removeEventListener(`${checkToggler()}`, whiteColor);
+    item.removeEventListener(`${checkToggler()}`, addBlackColor);
+    item.addEventListener(`${checkToggler()}`, addHexColor)});
 }
 
-function blackColor (e) {
+function changeToShade () {
+  const gridItems = document.querySelectorAll('.grid-item');
+  gridItems.forEach((item) => {
+    item.removeEventListener(`${checkToggler()}`, whiteColor);
+    item.removeEventListener(`${checkToggler()}`, addBlackColor);
+    item.removeEventListener(`${checkToggler()}`, addHexColor);
+    item.addEventListener(`${checkToggler()}`, addShade);
+  });
+}
+
+function addBlackColor (e) {
   e.target.style.backgroundColor = 'black';
 }
 
-function hexColor (e) {
+function addHexColor (e) {
   e.target.style.backgroundColor = `${pickHexColor()}`;
+}
+
+function addShade (e) {
+  e.target.style.opacity -= 0.1;
 }
 
 // *******************************************************
@@ -106,17 +130,21 @@ function clearGrid () {
   const gridItems = document.querySelectorAll('.grid-item');
   gridItems.forEach(item => {
     item.style.backgroundColor = 'white';
+    item.style.opacity = 1;
   });
 }
 
 function erase () {
   const gridItems = document.querySelectorAll('.grid-item');
   gridItems.forEach((item) => {
-    item.removeEventListener('mouseenter', blackColor);
-    item.removeEventListener('mouseenter', hexColor);
-    item.addEventListener('click', whiteColor)});
+    item.removeEventListener(`${checkToggler()}`, addShade);
+    item.removeEventListener(`${checkToggler()}`, addBlackColor);
+    item.removeEventListener(`${checkToggler()}`, addHexColor);
+    item.addEventListener(`${checkToggler()}`, whiteColor);
+  });
 }
 
 function whiteColor (e) {
   e.target.style.backgroundColor = 'white';
+  e.target.style.opacity = 1;
 }

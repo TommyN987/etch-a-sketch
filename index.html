@@ -5,23 +5,32 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Hex-a-Sketch</title>
-    <link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="style.css" />
 	</head>
 	<body>
-    <header>
-      <h1>Hex-a-Sketch</h1>
-    </header>
-    <main>
-      <section class="sidebar">
-        <button id="btn-clear">Clear Grid</button>
-        <button id="btn-new-grid">New Grid</button>
-        <button id="btn-black">Black & White</button>
-        <button id="btn-hex">Hex</button>
-        <button id="btn-eraser">Eraser</button>
-      </section>
-      <div id="container"></div>
-    </main>
-    <footer>&copy; Tommy Nagy</footer>
-    <script src="script.js"></script>
-  </body>
+		<header>
+			<h1>Hex-a-Sketch</h1>
+		</header>
+		<main>
+			<section class="sidebar">
+				<div class="switch-container">
+					<span>Fly</span>
+          <div class="switch">
+						<input type="checkbox" id="toggleAll" />
+						<label for="toggleAll"></label>
+					</div>
+          <span>Click</span>
+				</div>
+				<button id="btn-clear">Clear Grid</button>
+				<button id="btn-new-grid">New Grid</button>
+				<button id="btn-black">Black & White</button>
+				<button id="btn-hex">Hex</button>
+				<button id="btn-shader">Shader</button>
+				<button id="btn-eraser">Eraser</button>
+			</section>
+			<div id="container"></div>
+		</main>
+		<footer>&copy; Tommy Nagy</footer>
+		<script src="script.js"></script>
+	</body>
 </html>

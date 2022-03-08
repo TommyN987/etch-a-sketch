@@ -7,6 +7,7 @@ const btnClear = document.getElementById('btn-clear');
 const btnNew = document.getElementById('btn-new-grid');
 const btnBlack = document.getElementById('btn-black-grid');
 const btnHex = document.getElementById('btn-hex-grid');
+const btnEraser = document.getElementById('btn-eraser');
 
 // ******************************************************* 
 // BUTTON EVENT LISTENERS
@@ -16,6 +17,7 @@ btnClear.addEventListener('click', clearGrid);
 btnNew.addEventListener('click', customGrid);
 btnHex.addEventListener('click', changeToHex);
 btnBlack.addEventListener('click', changeToBlack);
+btnEraser.addEventListener('click', erase);
 
 // ******************************************************* 
 
@@ -36,7 +38,7 @@ function pickHexColor () {
     let newHexPart = hexParts[colorIndex];
     newColorArray.push(newHexPart);
   }
-  let newColor = "\#" + newColorArray.join("");
+  let newColor = `#${newColorArray.join("")}`;
   return newColor;
 }
 
@@ -75,6 +77,7 @@ function customGrid() {
 function changeToBlack () {
   const gridItems = document.querySelectorAll('.grid-item');
   gridItems.forEach(item => {
+    item.removeEventListener('click', whiteColor);
     item.removeEventListener('mouseleave', hexColor);
     item.addEventListener('mouseleave', blackColor)});
 }
@@ -82,6 +85,7 @@ function changeToBlack () {
 function changeToHex () {
   const gridItems = document.querySelectorAll('.grid-item');
   gridItems.forEach((item) => {
+    item.removeEventListener('click', whiteColor);
     item.removeEventListener('mouseleave', blackColor);
     item.addEventListener('mouseleave', hexColor)});
 }
@@ -103,4 +107,16 @@ function clearGrid () {
   gridItems.forEach(item => {
     item.style.backgroundColor = 'white';
   });
+}
+
+function erase () {
+  const gridItems = document.querySelectorAll('.grid-item');
+  gridItems.forEach((item) => {
+    item.removeEventListener('mouseleave', blackColor);
+    item.removeEventListener('mouseleave', hexColor);
+    item.addEventListener('click', whiteColor)});
+}
+
+function whiteColor (e) {
+  e.target.style.backgroundColor = 'white';
 }

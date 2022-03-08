@@ -65,7 +65,6 @@ button {
   border-left: 1px solid rgb(116, 116, 116);
   border-bottom: 1px solid rgb(116, 116, 116);
   background-color: rgba(255, 255, 255, 1);
-  aspect-ratio: 1;
 }
 
 footer {

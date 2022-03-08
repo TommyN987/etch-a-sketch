@@ -5,8 +5,8 @@
 const container = document.getElementById('container');
 const btnClear = document.getElementById('btn-clear');
 const btnNew = document.getElementById('btn-new-grid');
-const btnBlack = document.getElementById('btn-black-grid');
-const btnHex = document.getElementById('btn-hex-grid');
+const btnBlack = document.getElementById('btn-black');
+const btnHex = document.getElementById('btn-hex');
 const btnEraser = document.getElementById('btn-eraser');
 
 // ******************************************************* 
@@ -14,16 +14,16 @@ const btnEraser = document.getElementById('btn-eraser');
 // *******************************************************
 
 btnClear.addEventListener('click', clearGrid);
-btnNew.addEventListener('click', customGrid);
+btnNew.addEventListener('click', makeCustomGrid);
 btnHex.addEventListener('click', changeToHex);
 btnBlack.addEventListener('click', changeToBlack);
 btnEraser.addEventListener('click', erase);
 
 // ******************************************************* 
 
-makeGrid(16); // CREATES INITIAL GRID
+// CREATES INITIAL GRID
 
-// ******************************************************* 
+makeGrid(16); 
 
 // ******************************************************* 
 // HELPER FUNCTIONS
@@ -65,7 +65,7 @@ function makeGrid (cols) {
   }
 }
 
-function customGrid() {
+function makeCustomGrid() {
   cols = prompt('How many columns?');
   cols < 100 ? makeGrid(cols) : makeGrid(99);
 }

@@ -68,7 +68,7 @@ function makeGrid (cols) {
     const gridItem = document.createElement('div');
     gridItem.classList.add('grid-item');
     gridItem.style.opacity = 1;
-    gridItem.addEventListener(`${checkToggler()}`, addBlackColor);
+    gridItem.addEventListener('mouseenter', addBlackColor);
     container.appendChild(gridItem);
   }
 }
@@ -85,28 +85,28 @@ function makeCustomGrid() {
 function changeToBlack () {
   const gridItems = document.querySelectorAll('.grid-item');
   gridItems.forEach(item => {
-    item.removeEventListener(`${checkToggler()}`, addShade);
-    item.removeEventListener(`${checkToggler()}`, whiteColor);
-    item.removeEventListener(`${checkToggler()}`, addHexColor);
-    item.addEventListener(`${checkToggler()}`, addBlackColor)});
+    item.removeEventListener('mouseenter', addShade);
+    item.removeEventListener('mouseenter', whiteColor);
+    item.removeEventListener('mouseenter', addHexColor);
+    item.addEventListener('mouseenter', addBlackColor)});
 }
 
 function changeToHex () {
   const gridItems = document.querySelectorAll('.grid-item');
   gridItems.forEach((item) => {
-    item.removeEventListener(`${checkToggler()}`, addShade);
-    item.removeEventListener(`${checkToggler()}`, whiteColor);
-    item.removeEventListener(`${checkToggler()}`, addBlackColor);
-    item.addEventListener(`${checkToggler()}`, addHexColor)});
+    item.removeEventListener('mouseenter', addShade);
+    item.removeEventListener('mouseenter', whiteColor);
+    item.removeEventListener('mouseenter', addBlackColor);
+    item.addEventListener('mouseenter', addHexColor)});
 }
 
 function changeToShade () {
   const gridItems = document.querySelectorAll('.grid-item');
   gridItems.forEach((item) => {
-    item.removeEventListener(`${checkToggler()}`, whiteColor);
-    item.removeEventListener(`${checkToggler()}`, addBlackColor);
-    item.removeEventListener(`${checkToggler()}`, addHexColor);
-    item.addEventListener(`${checkToggler()}`, addShade);
+    item.removeEventListener('mouseenter', whiteColor);
+    item.removeEventListener('mouseenter', addBlackColor);
+    item.removeEventListener('mouseenter', addHexColor);
+    item.addEventListener('mouseenter', addShade);
   });
 }
 
@@ -137,10 +137,10 @@ function clearGrid () {
 function erase () {
   const gridItems = document.querySelectorAll('.grid-item');
   gridItems.forEach((item) => {
-    item.removeEventListener(`${checkToggler()}`, addShade);
-    item.removeEventListener(`${checkToggler()}`, addBlackColor);
-    item.removeEventListener(`${checkToggler()}`, addHexColor);
-    item.addEventListener(`${checkToggler()}`, whiteColor);
+    item.removeEventListener('mouseenter', addShade);
+    item.removeEventListener('mouseenter', addBlackColor);
+    item.removeEventListener('mouseenter', addHexColor);
+    item.addEventListener('mouseenter', whiteColor);
   });
 }
 

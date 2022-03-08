@@ -85,28 +85,25 @@ function makeCustomGrid() {
 function changeToBlack () {
   const gridItems = document.querySelectorAll('.grid-item');
   gridItems.forEach(item => {
-    item.removeEventListener('mouseenter', addShade);
-    item.removeEventListener('mouseenter', whiteColor);
-    item.removeEventListener('mouseenter', addHexColor);
-    item.addEventListener('mouseenter', addBlackColor)});
+    const newItem = item.cloneNode(true);
+    item.replaceWith(newItem);
+    newItem.addEventListener('mouseenter', addBlackColor)});
 }
 
 function changeToHex () {
   const gridItems = document.querySelectorAll('.grid-item');
   gridItems.forEach((item) => {
-    item.removeEventListener('mouseenter', addShade);
-    item.removeEventListener('mouseenter', whiteColor);
-    item.removeEventListener('mouseenter', addBlackColor);
-    item.addEventListener('mouseenter', addHexColor)});
+    const newItem = item.cloneNode(true);
+    item.replaceWith(newItem);
+    newItem.addEventListener('mouseenter', addHexColor)});
 }
 
 function changeToShade () {
   const gridItems = document.querySelectorAll('.grid-item');
   gridItems.forEach((item) => {
-    item.removeEventListener('mouseenter', whiteColor);
-    item.removeEventListener('mouseenter', addBlackColor);
-    item.removeEventListener('mouseenter', addHexColor);
-    item.addEventListener('mouseenter', addShade);
+    const newItem = item.cloneNode(true);
+    item.replaceWith(newItem);
+    newItem.addEventListener('mouseenter', addShade);
   });
 }
 
@@ -137,10 +134,9 @@ function clearGrid () {
 function erase () {
   const gridItems = document.querySelectorAll('.grid-item');
   gridItems.forEach((item) => {
-    item.removeEventListener('mouseenter', addShade);
-    item.removeEventListener('mouseenter', addBlackColor);
-    item.removeEventListener('mouseenter', addHexColor);
-    item.addEventListener('mouseenter', whiteColor);
+    const newItem = item.cloneNode(true);
+    item.replaceWith(newItem);
+    newItem.addEventListener('mouseenter', whiteColor);
   });
 }
 

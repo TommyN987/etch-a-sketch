@@ -58,16 +58,14 @@ function makeGrid (cols) {
   for (i = 0; i < (cols*cols); i++) {
     const gridItem = document.createElement('div');
     gridItem.classList.add('grid-item');
-    gridItem.addEventListener('click', blackColor);
+    gridItem.addEventListener('mouseleave', blackColor);
     container.appendChild(gridItem);
   }
 }
 
 function customGrid() {
-  cols = prompt('How many cols?');
-  makeGrid(cols);
-  const gridItem = document.createElement('div');
-  gridItem.addEventListener('click', blackColor);
+  cols = prompt('How many columns?');
+  cols < 100 ? makeGrid(cols) : makeGrid(99);
 }
 
 // *******************************************************
@@ -77,15 +75,15 @@ function customGrid() {
 function changeToBlack () {
   const gridItems = document.querySelectorAll('.grid-item');
   gridItems.forEach(item => {
-    item.removeEventListener('click', hexColor);
-    item.addEventListener('click', blackColor)});
+    item.removeEventListener('mouseleave', hexColor);
+    item.addEventListener('mouseleave', blackColor)});
 }
 
 function changeToHex () {
   const gridItems = document.querySelectorAll('.grid-item');
   gridItems.forEach((item) => {
-    item.removeEventListener('click', blackColor);
-    item.addEventListener('click', hexColor)});
+    item.removeEventListener('mouseleave', blackColor);
+    item.addEventListener('mouseleave', hexColor)});
 }
 
 function blackColor (e) {

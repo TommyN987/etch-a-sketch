@@ -45,12 +45,9 @@ main {
 }
 
 .grid-item {
-  border: 1px solid black;
+  border: 1px solid rgb(116, 116, 116);
+  background-color: rgba(255, 255, 255, 1);
   aspect-ratio: 1;
-}
-
-.black {
-  background: black;
 }
 
 footer {

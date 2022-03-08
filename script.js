@@ -60,7 +60,7 @@ function makeGrid (cols) {
   for (i = 0; i < (cols*cols); i++) {
     const gridItem = document.createElement('div');
     gridItem.classList.add('grid-item');
-    gridItem.addEventListener('mouseleave', blackColor);
+    gridItem.addEventListener('mouseenter', blackColor);
     container.appendChild(gridItem);
   }
 }
@@ -78,16 +78,16 @@ function changeToBlack () {
   const gridItems = document.querySelectorAll('.grid-item');
   gridItems.forEach(item => {
     item.removeEventListener('click', whiteColor);
-    item.removeEventListener('mouseleave', hexColor);
-    item.addEventListener('mouseleave', blackColor)});
+    item.removeEventListener('mouseenter', hexColor);
+    item.addEventListener('mouseenter', blackColor)});
 }
 
 function changeToHex () {
   const gridItems = document.querySelectorAll('.grid-item');
   gridItems.forEach((item) => {
     item.removeEventListener('click', whiteColor);
-    item.removeEventListener('mouseleave', blackColor);
-    item.addEventListener('mouseleave', hexColor)});
+    item.removeEventListener('mouseenter', blackColor);
+    item.addEventListener('mouseenter', hexColor)});
 }
 
 function blackColor (e) {
@@ -112,8 +112,8 @@ function clearGrid () {
 function erase () {
   const gridItems = document.querySelectorAll('.grid-item');
   gridItems.forEach((item) => {
-    item.removeEventListener('mouseleave', blackColor);
-    item.removeEventListener('mouseleave', hexColor);
+    item.removeEventListener('mouseenter', blackColor);
+    item.removeEventListener('mouseenter', hexColor);
     item.addEventListener('click', whiteColor)});
 }
 

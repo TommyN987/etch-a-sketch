@@ -42,12 +42,11 @@ main {
   width: 700px;
   align-self: center;
   display: grid;
-  grid-template-columns: repeat(16, 1fr); /* how to connect JS? */
-  grid-template-rows: repeat(16, 1fr);
 }
 
 .grid-item {
   border: 1px solid black;
+  aspect-ratio: 1;
 }
 
 .black {

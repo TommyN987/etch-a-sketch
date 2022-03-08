@@ -1,0 +1,60 @@
+html {
+  box-sizing: border-box;
+  font-size: 10px;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+  font-size: 8rem;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+}
+
+main {
+  height: 100%;
+  display: flex;
+  justify-content:flex-start;
+  gap: 200px;
+}
+
+.sidebar {
+  border: 2px solid green;
+  height: 100%;
+  width: 20%;
+}
+
+#container {
+  border: 1px solid black;
+  height: 700px;
+  width: 700px;
+  align-self: center;
+  display: grid;
+  grid-template-columns: repeat(16, 1fr); /* how to connect JS? */
+  grid-template-rows: repeat(16, 1fr);
+}
+
+.grid-item {
+  border: 1px solid black;
+}
+
+.black {
+  background: black;
+}
+
+footer {
+  font-size: 2rem;
+  text-align: center;
+}

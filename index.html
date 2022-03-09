@@ -8,29 +8,39 @@
 		<link rel="stylesheet" href="style.css" />
 	</head>
 	<body>
-		<header>
-			<h1>Hex-a-Sketch</h1>
-		</header>
 		<main>
 			<section class="sidebar">
 				<div class="switch-container">
 					<span>Fly</span>
-          <div class="switch">
+					<div class="switch">
 						<input type="checkbox" id="toggleAll" />
 						<label for="toggleAll"></label>
 					</div>
-          <span>Click</span>
+					<span>Click</span>
 				</div>
-        <button id="btn-new-grid"><span class="arrow">&#8595;</span> Custom Grid <span class="arrow">&#8595;</span></button>
-        <input type="number" name="custom-cols" id="custom-cols" placeholder="How many columns?" autofocus="true">
+				<button id="btn-new-grid">
+					<span class="arrow">&#8595;</span> Custom Grid
+					<span class="arrow">&#8595;</span>
+				</button>
+				<input
+					type="number"
+					name="custom-cols"
+					id="custom-cols"
+					placeholder="How many columns?"
+					autofocus="true"
+				/>
 				<button id="btn-black">Black & White</button>
 				<button id="btn-hex">Hex</button>
 				<button id="btn-shader">Shader</button>
-				<button id="btn-eraser">Eraser</button>				<button id="btn-clear">Clear Grid</button>
+				<button id="btn-eraser">Eraser</button>
+				<button id="btn-clear">Clear Grid</button>
 			</section>
-			<div id="container"></div>
+			<div id="big-container">
+				<h1>Hex-a-Sketch</h1>
+				<div id="container"></div>
+        <footer>&copy; Tommy Nagy</footer>
+			</div>
 		</main>
-		<footer>&copy; Tommy Nagy</footer>
 		<script src="script.js"></script>
 	</body>
 </html>

@@ -32,7 +32,7 @@ body {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  background-image: linear-gradient(to bottom right, yellow, orange, red, purple, blue, green);
+  background-image: repeating-conic-gradient(yellow 0deg 15deg, orange 15deg 30deg, red 30deg 45deg, purple 45deg 60deg, blue 60deg 75deg, green 75deg 90deg);;
 }
 
 main {

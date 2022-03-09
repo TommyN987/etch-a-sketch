@@ -68,7 +68,7 @@ function makeGrid (cols) {
     const gridItem = document.createElement('div');
     gridItem.classList.add('grid-item');
     gridItem.style.opacity = 1;
-    gridItem.addEventListener(`${checkToggler()}`, addBlackColor);
+    gridItem.addEventListener(`${checkToggler()}`, addHexColor);
     container.appendChild(gridItem);
   }
 }

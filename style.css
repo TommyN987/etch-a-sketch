@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Schoolbell&display=swap');
+
 html {
   box-sizing: border-box;
   font-size: 10px;
@@ -13,24 +15,32 @@ html {
 }
 
 h1 {
+  box-sizing: content-box;
+  font-size: 12rem;
   text-align: center;
-  font-size: 8rem;
-  color: rgb(72, 72, 72);
+  background-color: rgb(56, 2, 40);
+  color:rgb(206, 195, 48);
+  margin: 5px auto 0;
+  width: 700px;
+  padding-inline: max(5px, 5%);
+  padding-block: 10px;
+  font-family: 'Schoolbell', cursive;;
+  border-radius: 30px;
 }
 
 body {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   height: 100vh;
-  background-color: rgb(223, 223, 192);
+  background-image: linear-gradient(to bottom right, yellow, orange, red, purple, blue, green);
 }
 
 main {
   height: 100%;
   display: flex;
   justify-content:flex-start;
-  gap: 200px;
+  gap: min(200px, 5%);
+  padding-right: min(10%, 5px);
 }
 
 .sidebar {
@@ -41,14 +51,25 @@ main {
   justify-content: center;
   align-items: center;
   gap: 20px;
+  margin-left: max(8%, 5px);
+}
+
+#container {
+  border-top: 1px solid rgb(116, 116, 116);
+  border-right: 1px solid rgb(116, 116, 116);
+  height: 700px;
+  width: 700px;
+  align-self: center;
+  display: grid;
+  background-color: black;
 }
 
 .switch-container {
-  width: 50%;
+  width: max(175px, 70%);
   padding: 10px 0;
-  color: white;
-  background-color: rgb(72, 72, 72);
-  font-family: 'Courier New', Courier, monospace;
+  color:rgb(206, 195, 48);
+  background-color: rgb(56, 2, 40);
+  font-family: 'Schoolbell', cursive;
   font-size: 1.5rem;
   font-weight: bold;
   border-radius: 10px;
@@ -58,7 +79,7 @@ main {
 }
 
 span {
-  font-size: 1.5rem;
+  font-size: 2.2rem;
   font-weight: bold;
 }
 
@@ -86,7 +107,7 @@ span {
   cursor: pointer;
   width: 48px;
   height: 24px;
-  background: grey;
+  background: blue;
   display: block;
   border-radius: 24px;
   position: relative;
@@ -105,24 +126,42 @@ span {
 }
 
 button {
-  width: 50%;
+  width: max(175px, 70%);
   padding: 10px 0;
-  color: white;
-  background-color: rgb(72, 72, 72);
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 1.5rem;
+  color:rgb(206, 195, 48);
+  background-color: rgb(56, 2, 40);
+  font-family: 'Schoolbell', cursive;
+  font-size: 2.2rem;
   font-weight: bold;
   border-radius: 10px;
 }
 
-#container {
-  border-top: 1px solid rgb(116, 116, 116);
-  border-right: 1px solid rgb(116, 116, 116);
-  height: 700px;
-  width: 700px;
-  align-self: center;
-  display: grid;
-  background-color: black;
+#custom-cols {
+  width: max(175px, 70%);
+  text-align: center;
+  font-family: 'Schoolbell', cursive;
+  font-size: 1.8rem;
+  font-weight: bold;
+  border-radius: 10px;
+  line-height: 3rem;
+  color: rgb(51, 45, 45);
+  background-color: rgb(185, 182, 182);
+  padding-top: 4px;
+}
+
+#custom-cols::placeholder {
+  color: rgb(51, 45, 45);
+  text-align: center;
+}
+
+#btn-new-grid {
+  padding: 0;
+  margin-bottom: -17px;
+  width: max(175px, 70%);
+}
+
+.arrow {
+  font-size: 3rem;
 }
 
 .grid-item {
@@ -134,4 +173,6 @@ button {
 footer {
   font-size: 2rem;
   text-align: center;
+  color:rgb(206, 195, 48);
+  font-family: 'Schoolbell', cursive;
 }

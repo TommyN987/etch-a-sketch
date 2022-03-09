@@ -68,7 +68,7 @@ function makeGrid (cols) {
     const gridItem = document.createElement('div');
     gridItem.classList.add('grid-item');
     gridItem.style.opacity = 1;
-    gridItem.addEventListener('mouseenter', addBlackColor);
+    gridItem.addEventListener(`${checkToggler()}`, addBlackColor);
     container.appendChild(gridItem);
   }
 }
@@ -87,7 +87,7 @@ function changeToBlack () {
   gridItems.forEach(item => {
     const newItem = item.cloneNode(true);
     item.replaceWith(newItem);
-    newItem.addEventListener('mouseenter', addBlackColor)});
+    newItem.addEventListener(`${checkToggler()}`, addBlackColor)});
 }
 
 function changeToHex () {
@@ -95,7 +95,7 @@ function changeToHex () {
   gridItems.forEach((item) => {
     const newItem = item.cloneNode(true);
     item.replaceWith(newItem);
-    newItem.addEventListener('mouseenter', addHexColor)});
+    newItem.addEventListener(`${checkToggler()}`, addHexColor)});
 }
 
 function changeToShade () {
@@ -103,7 +103,7 @@ function changeToShade () {
   gridItems.forEach((item) => {
     const newItem = item.cloneNode(true);
     item.replaceWith(newItem);
-    newItem.addEventListener('mouseenter', addShade);
+    newItem.addEventListener(`${checkToggler()}`, addShade);
   });
 }
 
@@ -136,7 +136,7 @@ function erase () {
   gridItems.forEach((item) => {
     const newItem = item.cloneNode(true);
     item.replaceWith(newItem);
-    newItem.addEventListener('mouseenter', whiteColor);
+    newItem.addEventListener(`${checkToggler()}`, whiteColor);
   });
 }
 

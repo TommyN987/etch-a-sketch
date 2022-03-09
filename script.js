@@ -4,23 +4,23 @@
 
 const container = document.getElementById('container');
 const btnClear = document.getElementById('btn-clear');
-const btnNew = document.getElementById('btn-new-grid');
 const btnBlack = document.getElementById('btn-black');
 const btnHex = document.getElementById('btn-hex');
 const btnShader = document.getElementById('btn-shader');
 const btnEraser = document.getElementById('btn-eraser');
 const toggler = document.getElementById('toggleAll');
+const customGrid = document.getElementById('custom-cols');
 
 // ******************************************************* 
 // BUTTON EVENT LISTENERS
 // *******************************************************
 
 btnClear.addEventListener('click', clearGrid);
-btnNew.addEventListener('click', makeCustomGrid);
 btnHex.addEventListener('click', changeToHex);
 btnBlack.addEventListener('click', changeToBlack);
 btnShader.addEventListener('click', changeToShade);
 btnEraser.addEventListener('click', erase);
+customGrid.addEventListener('keypress', makeCustomGrid);
 
 // ******************************************************* 
 
@@ -73,9 +73,11 @@ function makeGrid (cols) {
   }
 }
 
-function makeCustomGrid() {
-  cols = prompt('How many columns?');
-  cols < 100 ? makeGrid(cols) : makeGrid(99);
+function makeCustomGrid(event) {
+  if (event.key == 'Enter') {
+    const cols = customGrid.value;
+    cols < 100 ? makeGrid(cols) : makeGrid(99);
+  }
 }
 
 // *******************************************************
@@ -144,3 +146,4 @@ function whiteColor (e) {
   e.target.style.backgroundColor = 'white';
   e.target.style.opacity = 1;
 }
+

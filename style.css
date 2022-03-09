@@ -78,6 +78,12 @@ main {
   background-color: black;
 }
 
+.grid-item {
+  border-left: 1px solid rgb(116, 116, 116);
+  border-bottom: 1px solid rgb(116, 116, 116);
+  background-color: rgba(255, 255, 255, 1);
+}
+
 .switch-container {
   width: max(175px, 70%);
   padding: 10px 0;
@@ -178,11 +184,7 @@ button {
   font-size: 3rem;
 }
 
-.grid-item {
-  border-left: 1px solid rgb(116, 116, 116);
-  border-bottom: 1px solid rgb(116, 116, 116);
-  background-color: rgba(255, 255, 255, 1);
-}
+
 
 footer {
   font-size: 2rem;

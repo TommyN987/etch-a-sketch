@@ -10,6 +10,8 @@ const btnShader = document.getElementById('btn-shader');
 const btnEraser = document.getElementById('btn-eraser');
 const toggler = document.getElementById('toggleAll');
 const customGrid = document.getElementById('custom-cols');
+const colorPicker = document.querySelector('input[type=color]');
+const hexText = document.getElementById('hex-text');
 
 // ******************************************************* 
 // BUTTON EVENT LISTENERS
@@ -21,6 +23,7 @@ btnBlack.addEventListener('click', changeToBlack);
 btnShader.addEventListener('click', changeToShade);
 btnEraser.addEventListener('click', erase);
 customGrid.addEventListener('keypress', makeCustomGrid);
+colorPicker.addEventListener('input', changeToUserPick);
 
 // ******************************************************* 
 
@@ -109,6 +112,20 @@ function changeToShade () {
   });
 }
 
+function changeToUserPick () {
+  const gridItems = document.querySelectorAll('.grid-item');
+  gridItems.forEach((item) => {
+    const newItem = item.cloneNode(true);
+    item.replaceWith(newItem);
+    newItem.addEventListener(`${checkToggler()}`, addPickedColor);
+  });
+  hexText.innerText = colorPicker.value;
+}
+
+function addPickedColor (e) {
+  e.target.style.backgroundColor = `${colorPicker.value}`;
+}
+
 function addBlackColor (e) {
   e.target.style.backgroundColor = 'black';
 }
@@ -146,4 +163,3 @@ function whiteColor (e) {
   e.target.style.backgroundColor = 'white';
   e.target.style.opacity = 1;
 }
-

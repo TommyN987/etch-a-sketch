@@ -165,7 +165,7 @@ button {
   border-radius: 10px;
   line-height: 3rem;
   color: rgb(51, 45, 45);
-  background-color:yellow;
+  background-color: yellow;
   padding-top: 4px;
 }
 
@@ -184,7 +184,20 @@ button {
   font-size: 3rem;
 }
 
+[type='color'] {
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  border: none;
+}
 
+[type='color']::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+#hex-text {
+  margin-left: 10px;
+}
 
 footer {
   font-size: 2rem;

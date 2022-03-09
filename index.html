@@ -10,7 +10,7 @@
 	<body>
 		<main>
 			<section class="sidebar">
-				<div class="switch-container">
+        <div class="switch-container">
 					<span>Fly</span>
 					<div class="switch">
 						<input type="checkbox" id="toggleAll" />
@@ -29,6 +29,10 @@
 					placeholder="How many columns?"
 					autofocus="true"
 				/>
+        <div class="switch-container">
+          <input type="color" value="#ff0000" id="colorPicker">
+          <span id="hex-text">Pick a hex</span>
+        </div>
 				<button id="btn-black">Black & White</button>
 				<button id="btn-hex">Hex</button>
 				<button id="btn-shader">Shader</button>

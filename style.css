@@ -19,7 +19,7 @@ h1 {
   font-size: 12rem;
   text-align: center;
   background-color: rgb(56, 2, 40);
-  color:rgb(206, 195, 48);
+  color:rgb(230, 243, 53);
   margin: 5px auto 0;
   width: 700px;
   padding-inline: max(5px, 5%);
@@ -81,7 +81,7 @@ main {
 .switch-container {
   width: max(175px, 70%);
   padding: 10px 0;
-  color:rgb(206, 195, 48);
+  color:rgb(230, 243, 53);
   background-color: rgb(56, 2, 40);
   font-family: 'Schoolbell', cursive;
   font-size: 1.5rem;
@@ -142,7 +142,7 @@ span {
 button {
   width: max(175px, 70%);
   padding: 10px 0;
-  color:rgb(206, 195, 48);
+  color:rgb(230, 243, 53);
   background-color: rgb(56, 2, 40);
   font-family: 'Schoolbell', cursive;
   font-size: 2.2rem;
@@ -159,7 +159,7 @@ button {
   border-radius: 10px;
   line-height: 3rem;
   color: rgb(51, 45, 45);
-  background-color:rgb(206, 195, 48);
+  background-color:yellow;
   padding-top: 4px;
 }
 
@@ -187,6 +187,6 @@ button {
 footer {
   font-size: 2rem;
   text-align: center;
-  color:rgb(206, 195, 48);
+  color:rgb(230, 243, 53);
   font-family: 'Schoolbell', cursive;
 }

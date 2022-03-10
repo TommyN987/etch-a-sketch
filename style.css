@@ -197,8 +197,20 @@ h1 {
 }
 
 footer {
-	text-align: center;
+	display: flex;
+  justify-content: space-around;
+  padding-top: 5px;
+  text-align: center;
 	font-family: 'Schoolbell', cursive;
 	font-size: 2rem;
 	color: rgb(230, 243, 53);
+}
+
+.github-logo {
+  width: 2.5rem;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(230, 243, 53);
 }

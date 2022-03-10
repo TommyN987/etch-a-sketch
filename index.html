@@ -10,7 +10,7 @@
 	<body>
 		<main>
 			<section class="sidebar">
-        <div class="switch-container">
+				<div class="switch-container">
 					<span>Fly</span>
 					<div class="switch">
 						<input type="checkbox" id="toggleAll" />
@@ -18,20 +18,20 @@
 					</div>
 					<span>Click</span>
 				</div>
-				<button id="btn-new-grid">
+				<div class="switch-container" id="btn-new-grid">
 					<span class="arrow">&#8595;</span> Custom Grid
 					<span class="arrow">&#8595;</span>
-				</button>
+				</div>
 				<input
 					type="number"
 					name="custom-cols"
 					id="custom-cols"
 					placeholder="How many columns?"
 				/>
-        <div class="switch-container">
-          <input type="color" value="#ff0000" id="colorPicker">
-          <span id="hex-text">Pick a hex</span>
-        </div>
+				<div class="switch-container">
+					<input type="color" value="#ff0000" id="colorPicker" />
+					<span id="hex-text">Pick a hex</span>
+				</div>
 				<button id="btn-black">Black & White</button>
 				<button id="btn-hex">Random Hex</button>
 				<button id="btn-shader">Shader</button>
@@ -41,7 +41,7 @@
 			<div id="big-container">
 				<h1>Hex-a-Sketch</h1>
 				<div id="container"></div>
-        <footer>&copy; Tommy Nagy</footer>
+				<footer>&copy; Tommy Nagy</footer>
 			</div>
 		</main>
 		<script src="script.js"></script>

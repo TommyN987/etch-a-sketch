@@ -74,7 +74,7 @@ function makeGrid (cols) {
     const gridItem = document.createElement('div');
     gridItem.classList.add('grid-item');
     gridItem.style.opacity = 1;
-    gridItem.addEventListener(`${checkToggler()}`, addHexColor);
+    gridItem.addEventListener(checkToggler(), addHexColor);
     container.appendChild(gridItem);
   }
   activeHandler = addHexColor;
@@ -97,7 +97,7 @@ function changeToBlack () {
   gridItems.forEach(item => {
     const newItem = item.cloneNode(true);
     item.replaceWith(newItem);
-    newItem.addEventListener(`${checkToggler()}`, addBlackColor)});
+    newItem.addEventListener(checkToggler(), addBlackColor)});
   activeEvent = checkToggler();
   activeHandler = addBlackColor;
 }
@@ -107,7 +107,7 @@ function changeToHex () {
   gridItems.forEach((item) => {
     const newItem = item.cloneNode(true);
     item.replaceWith(newItem);
-    newItem.addEventListener(`${checkToggler()}`, addHexColor)});
+    newItem.addEventListener(checkToggler(), addHexColor)});
   activeEvent = checkToggler();
   activeHandler = addHexColor;
 }
@@ -117,7 +117,7 @@ function changeToShade () {
   gridItems.forEach((item) => {
     const newItem = item.cloneNode(true);
     item.replaceWith(newItem);
-    newItem.addEventListener(`${checkToggler()}`, addShade);
+    newItem.addEventListener(checkToggler(), addShade);
   });
   activeEvent = checkToggler();
   activeHandler = addShade;
@@ -128,7 +128,7 @@ function changeToUserPick () {
   gridItems.forEach((item) => {
     const newItem = item.cloneNode(true);
     item.replaceWith(newItem);
-    newItem.addEventListener(`${checkToggler()}`, addPickedColor);
+    newItem.addEventListener(checkToggler(), addPickedColor);
   });
   hexText.innerText = colorPicker.value;
   activeEvent = checkToggler();
@@ -168,7 +168,7 @@ function erase () {
   gridItems.forEach((item) => {
     const newItem = item.cloneNode(true);
     item.replaceWith(newItem);
-    newItem.addEventListener(`${checkToggler()}`, whiteColor);
+    newItem.addEventListener(checkToggler(), whiteColor);
   });
   activeEvent = checkToggler();
   activeHandler = whiteColor;
@@ -188,7 +188,7 @@ function toggleFlyAndClick () {
   gridItems.forEach((item) => {
     const newItem = item.cloneNode(true);
     item.replaceWith(newItem);
-    newItem.addEventListener(`${checkActiveEvent()}`, activeHandler);
+    newItem.addEventListener(checkActiveEvent(), activeHandler);
   });
   activeEvent = checkActiveEvent();
 }

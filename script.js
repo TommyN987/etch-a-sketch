@@ -12,6 +12,8 @@ const toggler = document.getElementById('toggleAll');
 const customGrid = document.getElementById('custom-cols');
 const colorPicker = document.querySelector('input[type=color]');
 const hexText = document.getElementById('hex-text');
+let activeEvent;
+let activeHandler;
 
 // ******************************************************* 
 // BUTTON EVENT LISTENERS
@@ -24,6 +26,7 @@ btnShader.addEventListener('click', changeToShade);
 btnEraser.addEventListener('click', erase);
 customGrid.addEventListener('keypress', makeCustomGrid);
 colorPicker.addEventListener('input', changeToUserPick);
+toggler.addEventListener('change', toggleFlyAndClick);
 
 // ******************************************************* 
 
@@ -74,6 +77,8 @@ function makeGrid (cols) {
     gridItem.addEventListener(`${checkToggler()}`, addHexColor);
     container.appendChild(gridItem);
   }
+  activeHandler = addHexColor;
+  activeEvent = checkToggler();
 }
 
 function makeCustomGrid(event) {
@@ -93,6 +98,8 @@ function changeToBlack () {
     const newItem = item.cloneNode(true);
     item.replaceWith(newItem);
     newItem.addEventListener(`${checkToggler()}`, addBlackColor)});
+  activeEvent = checkToggler();
+  activeHandler = addBlackColor;
 }
 
 function changeToHex () {
@@ -101,6 +108,8 @@ function changeToHex () {
     const newItem = item.cloneNode(true);
     item.replaceWith(newItem);
     newItem.addEventListener(`${checkToggler()}`, addHexColor)});
+  activeEvent = checkToggler();
+  activeHandler = addHexColor;
 }
 
 function changeToShade () {
@@ -110,6 +119,8 @@ function changeToShade () {
     item.replaceWith(newItem);
     newItem.addEventListener(`${checkToggler()}`, addShade);
   });
+  activeEvent = checkToggler();
+  activeHandler = addShade;
 }
 
 function changeToUserPick () {
@@ -120,6 +131,8 @@ function changeToUserPick () {
     newItem.addEventListener(`${checkToggler()}`, addPickedColor);
   });
   hexText.innerText = colorPicker.value;
+  activeEvent = checkToggler();
+  activeHandler = addPickedColor;
 }
 
 function addPickedColor (e) {
@@ -157,9 +170,29 @@ function erase () {
     item.replaceWith(newItem);
     newItem.addEventListener(`${checkToggler()}`, whiteColor);
   });
+  activeEvent = checkToggler();
+  activeHandler = whiteColor;
 }
 
 function whiteColor (e) {
   e.target.style.backgroundColor = 'white';
   e.target.style.opacity = 1;
+}
+
+// *******************************************************
+// TOGGLER FUNCTIONS
+// *******************************************************
+
+function toggleFlyAndClick () {
+  const gridItems = document.querySelectorAll('.grid-item');
+  gridItems.forEach((item) => {
+    const newItem = item.cloneNode(true);
+    item.replaceWith(newItem);
+    newItem.addEventListener(`${checkActiveEvent()}`, activeHandler);
+  });
+  activeEvent = checkActiveEvent();
+}
+
+function checkActiveEvent () {
+  return activeEvent == 'mouseenter' ? 'click' : 'mouseenter';
 }

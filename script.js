@@ -92,63 +92,42 @@ function makeCustomGrid(event) {
 // ITEM COLORING FUNCTIONS
 // *******************************************************
 
-function changeToBlack () {
+function colorize (color) {
   const gridItems = document.querySelectorAll('.grid-item');
   gridItems.forEach(item => {
     const newItem = item.cloneNode(true);
     item.replaceWith(newItem);
-    newItem.addEventListener(checkToggler(), addBlackColor)});
-  activeEvent = checkToggler();
-  activeHandler = addBlackColor;
+    newItem.addEventListener(checkToggler(), color)});
+  activeHandler = color;
 }
+
+function changeToBlack () {
+  colorize (e => {
+    e.target.style.backgroundColor = 'black';
+    }
+  )}
 
 function changeToHex () {
-  const gridItems = document.querySelectorAll('.grid-item');
-  gridItems.forEach((item) => {
-    const newItem = item.cloneNode(true);
-    item.replaceWith(newItem);
-    newItem.addEventListener(checkToggler(), addHexColor)});
-  activeEvent = checkToggler();
-  activeHandler = addHexColor;
-}
+  colorize (e => {
+    e.target.style.backgroundColor = `${pickHexColor()}`;
+    }
+  )}
 
 function changeToShade () {
-  const gridItems = document.querySelectorAll('.grid-item');
-  gridItems.forEach((item) => {
-    const newItem = item.cloneNode(true);
-    item.replaceWith(newItem);
-    newItem.addEventListener(checkToggler(), addShade);
-  });
-  activeEvent = checkToggler();
-  activeHandler = addShade;
-}
+  colorize (e => {
+    e.target.style.opacity -= 0.1;
+    }
+  )}
 
 function changeToUserPick () {
-  const gridItems = document.querySelectorAll('.grid-item');
-  gridItems.forEach((item) => {
-    const newItem = item.cloneNode(true);
-    item.replaceWith(newItem);
-    newItem.addEventListener(checkToggler(), addPickedColor);
+  colorize (e => {
+    e.target.style.backgroundColor = `${colorPicker.value}`;
   });
   hexText.innerText = colorPicker.value;
-  activeEvent = checkToggler();
-  activeHandler = addPickedColor;
-}
-
-function addPickedColor (e) {
-  e.target.style.backgroundColor = `${colorPicker.value}`;
-}
-
-function addBlackColor (e) {
-  e.target.style.backgroundColor = 'black';
 }
 
 function addHexColor (e) {
   e.target.style.backgroundColor = `${pickHexColor()}`;
-}
-
-function addShade (e) {
-  e.target.style.opacity -= 0.1;
 }
 
 // *******************************************************
@@ -164,14 +143,7 @@ function clearGrid () {
 }
 
 function erase () {
-  const gridItems = document.querySelectorAll('.grid-item');
-  gridItems.forEach((item) => {
-    const newItem = item.cloneNode(true);
-    item.replaceWith(newItem);
-    newItem.addEventListener(checkToggler(), whiteColor);
-  });
-  activeEvent = checkToggler();
-  activeHandler = whiteColor;
+  colorize (whiteColor);
 }
 
 function whiteColor (e) {
@@ -184,12 +156,7 @@ function whiteColor (e) {
 // *******************************************************
 
 function toggleFlyAndClick () {
-  const gridItems = document.querySelectorAll('.grid-item');
-  gridItems.forEach((item) => {
-    const newItem = item.cloneNode(true);
-    item.replaceWith(newItem);
-    newItem.addEventListener(checkActiveEvent(), activeHandler);
-  });
+  colorize (activeHandler);
   activeEvent = checkActiveEvent();
 }
 

@@ -47,6 +47,12 @@ main {
 	gap: 20px;
 }
 
+.active {
+  background-color: rgb(230, 243, 53);
+	color: rgb(56, 2, 40);
+  border: 2px solid rgb(56, 2, 40);
+}
+
 .switch-container {
 	width: max(175px, 70%);
 	display: flex;

@@ -11,9 +11,11 @@ const btnEraser = document.getElementById('btn-eraser');
 const toggler = document.getElementById('toggleAll');
 const customGrid = document.getElementById('custom-cols');
 const colorPicker = document.querySelector('input[type=color]');
+const btnColorPicker = document.getElementById('btn-color-picker');
 const hexText = document.getElementById('hex-text');
 let activeEvent;
 let activeHandler;
+let activeButton;
 
 // ******************************************************* 
 // BUTTON EVENT LISTENERS
@@ -72,13 +74,15 @@ function makeGrid (cols) {
   removeGrid(); 
   for (i = 0; i < (cols*cols); i++) {
     const gridItem = document.createElement('div');
-    gridItem.classList.add('grid-item');
+    gridItem.classList.toggle('grid-item');
     gridItem.style.opacity = 1;
     gridItem.addEventListener(checkToggler(), addHexColor);
     container.appendChild(gridItem);
   }
   activeHandler = addHexColor;
   activeEvent = checkToggler();
+  activeButton = btnHex;
+  activeButton.classList.toggle('active');
 }
 
 function makeCustomGrid(event) {
@@ -86,6 +90,11 @@ function makeCustomGrid(event) {
     const cols = customGrid.value;
     cols < 100 ? makeGrid(cols) : makeGrid(99);
   }
+}
+
+function activateButton (btn) {
+  activeButton = btn;
+  activeButton.classList.toggle('active');
 }
 
 // *******************************************************
@@ -99,31 +108,39 @@ function colorize (color) {
     item.replaceWith(newItem);
     newItem.addEventListener(checkToggler(), color)});
   activeHandler = color;
+  activeButton.classList.toggle('active');
 }
 
 function changeToBlack () {
   colorize (e => {
     e.target.style.backgroundColor = 'black';
     }
-  )}
+  );
+  activateButton(btnBlack);
+}
 
 function changeToHex () {
   colorize (e => {
     e.target.style.backgroundColor = `${pickHexColor()}`;
     }
-  )}
+  );
+  activateButton(btnHex);
+}
 
 function changeToShade () {
   colorize (e => {
     e.target.style.opacity -= 0.1;
     }
-  )}
+  );
+  activateButton(btnShader);
+}
 
 function changeToUserPick () {
   colorize (e => {
     e.target.style.backgroundColor = `${colorPicker.value}`;
   });
   hexText.innerText = colorPicker.value;
+  activateButton(btnColorPicker);
 }
 
 function addHexColor (e) {
@@ -144,6 +161,7 @@ function clearGrid () {
 
 function erase () {
   colorize (whiteColor);
+  activateButton(btnEraser);
 }
 
 function whiteColor (e) {
@@ -157,6 +175,7 @@ function whiteColor (e) {
 
 function toggleFlyAndClick () {
   colorize (activeHandler);
+  activateButton(activeButton);
   activeEvent = checkActiveEvent();
 }
 

@@ -60,7 +60,7 @@ function removeGrid () {
 }
 
 function checkToggler () {
-  return toggler.checked == true ? 'click' : 'mouseenter';
+  return toggler.checked ? 'click' : 'mouseenter';
 }
 
 // *******************************************************
@@ -82,7 +82,7 @@ function makeGrid (cols) {
 }
 
 function makeCustomGrid(event) {
-  if (event.key == 'Enter') {
+  if (event.key === 'Enter') {
     const cols = customGrid.value;
     cols < 100 ? makeGrid(cols) : makeGrid(99);
   }

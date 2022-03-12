@@ -82,11 +82,12 @@ function makeGrid (cols) {
   activeHandler = addHexColor;
   activeEvent = checkToggler();
   activeButton = btnHex;
-  activeButton.classList.toggle('active');
+  activeButton.classList.add('active');
 }
 
 function makeCustomGrid(event) {
   if (event.key === 'Enter') {
+    activeButton.classList.toggle('active');
     const cols = customGrid.value;
     cols < 100 ? makeGrid(cols) : makeGrid(99);
   }
